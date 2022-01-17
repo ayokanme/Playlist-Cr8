@@ -1,4 +1,4 @@
-# Project Name #
+# Playlist Cr8 #
 
 <!--
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
 
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > Welcome to Playlist Cr8. Take control of your music!
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Everyday Spotify users can now create playlists just like the best DJs!
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Music afficionados can now create amazing playlists, curating unique vibes using the proprietary algorithm from Playlist Cr8.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Are you tired of making uninspired playlists?
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Playlist Cr8 let's you fine-tune your playlist creation by giving you control over the parameters that matter: energy, danceability, and tempo.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "You have to try it for yourself to believe it"
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Visit our webpage, connect your Spotify account, search a few songs, and hit "Cr8"!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "I pushed a few buttons and it's like the system knows me better than I know myself. I chose the songs, but the order and transitions were perfect. Secured my aux privileges on road trips for the forseeable future."
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Want to know what all the fuss is about? Head to the website!
