@@ -5,11 +5,11 @@ class SelectedSongs extends React.Component {
     super(props);
   }
 
-  createTrackListItem(track) {
+  createTrackListItem(track, index) {
     return (
-      <li song={track.trackName}>{
-        `Track: ${track.trackName}
-        Artist: ${track.artistName}`
+      <li key={index}>{
+        `Track: ${track.track}
+        Artist: ${track.artist}`
       }</li>
     );
   }
