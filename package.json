@@ -1,4 +1,14 @@
 {
+  "name": "playlist-cr8",
+  "version": "0.0.1",
+  "description": "Create rich playlists using the Spotify Web API",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "react-dev": "webpack --mode development --watch",
+    "start": "npx nodemon server/index.js"
+  },
   "dependencies": {
     "axios": "^0.24.0",
     "express": "^4.17.2",
@@ -6,5 +16,17 @@
     "mongoose": "^6.1.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.1.8"
   }
 }
