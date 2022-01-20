@@ -6,7 +6,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack --mode development --watch",
+    "build": "webpack --mode development --watch",
     "start": "npx nodemon server/index.js"
   },
   "dependencies": {
