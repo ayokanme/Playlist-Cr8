@@ -3,33 +3,32 @@ import React from 'react';
 class TrackSearch extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      query: ''
+    };
     this.handleChange = this.handleChange.bind(this);
+    this.search = this.search.bind(this);
   }
 
   handleChange(e) {
-    this.props.onFormChange(e);
+    this.setState({
+      query: e.target.value
+    });
+  }
+
+  search() {
+    this.props.onSearch(this.state.query);
   }
 
   render() {
     return (
       <div className="searchForm">
         <h2>Search for a track</h2>
-      <form onSubmit={this.props.addTrack}>
-        <label htmlFor="trackName">Song: </label>
+      <form onSubmit={this.search}>
         <input
-          id="trackName"
-          name="trackName"
-          defaultValue={this.props.trackName}
+          value={this.state.query}
           onChange={this.handleChange}
-          placeholder="song title">
-        </input>
-        <label htmlFor="artistName"> Artist: </label>
-        <input
-          id="artistName"
-          name="artistName"
-          defaultValue={this.props.artistName}
-          onChange={this.handleChange}
-          placeholder="artist">
+          placeholder="type in a song, artist, or album">
         </input>
         <button type="submit">search</button>
       </form>

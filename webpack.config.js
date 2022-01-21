@@ -21,11 +21,4 @@ module.exports = {
       },
     ],
   },
-  // plugins: [new HtmlWebpackPlugin({ template: './client/public/index.html' })],
-  // resolve: { extensions: ["*", ".js", ".jsx"] },
-  // devServer: {
-  //   contentBase: path.join(__dirname, "/client/public/"),
-  //   port: 3000,
-  //   publicPath: "http://localhost:3000/dist/"
-  // }
 };

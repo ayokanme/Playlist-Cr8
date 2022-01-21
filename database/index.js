@@ -23,6 +23,8 @@ let dbSchema = mongoose.Schema({
 			trackId: String,
 			name: String,
 			artist: Array,
+			trackUrl: String,
+			imageUrl: String,
 			danceability: Number,
 			energy: Number,
 			tempo: Number,
