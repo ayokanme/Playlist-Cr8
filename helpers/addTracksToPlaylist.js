@@ -1,16 +1,18 @@
 const axios = require('axios');
 const config = require('../config.js');
 
-let createPlaylist = (createPlaylistObj) => {
+let addTracksToPlaylist = (playlistId, trackIdArray) => {
+
+  var queryArray = trackIdArray.map(id => {
+    return `spotify:track:${id}`
+  });
 
   var queryObject = {
-    name: createPlaylistObj.name,
-    description: `${createPlaylistObj.description} (this playlist was made using Playlist Cr8 app)`,
-    public: false
+    uris: queryArray
   };
 
   let options = {
-    url: `https://api.spotify.com/v1/users/${config.user_id}/playlists`,
+    url: `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
     headers: {
       'User-Agent': 'request',
       'Authorization': `Bearer ${config.bearer_token}`
@@ -28,9 +30,9 @@ let createPlaylist = (createPlaylistObj) => {
     }
   })
     .then((response) => {
-      var spotifyId = response.data.id;
-      // console.log(`Your playlistId is: ${spotifyId}`);
-      return spotifyId;
+      var snapshotId = response.data.snapshot_id;
+      // console.log(`Your snapshotId is: ${snapshotId}`);
+      return snapshotId;
     })
     .catch((error) => {
       console.log(`Your search returned an error. ${error}`);
@@ -38,4 +40,4 @@ let createPlaylist = (createPlaylistObj) => {
     });
 };
 
-module.exports.createPlaylist = createPlaylist;
+module.exports.addTracksToPlaylist = addTracksToPlaylist;

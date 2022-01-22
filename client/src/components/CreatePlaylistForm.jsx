@@ -43,6 +43,7 @@ class CreatePlaylistForm extends React.Component {
           <form onSubmit={this.create}>
             <label htmlFor="playlistName" style={{ display: 'block' }}>Name: </label>
             <input
+              name="playlistName"
               value={this.props.playlistName}
               onChange={this.handleChange}
               type="text"
@@ -52,10 +53,11 @@ class CreatePlaylistForm extends React.Component {
             </input>
             <label htmlFor="playlistDescription" style={{ display: 'block' }}>Description: </label>
             <textarea
+              name="playlistDescription"
               value={this.props.playlistDescription}
               onChange={this.handleChange}
               style={{ display: 'block' }}
-              placeholder="DISABLE UNLESS 5 SONGS SELECTED. say a few words about your masterpiece">
+              placeholder="say a few words about your masterpiece">
             </textarea>
             <button>CREATE PLAYLIST</button>
           </form>
@@ -65,6 +67,5 @@ class CreatePlaylistForm extends React.Component {
   }
 }
 
-// disable if not up to 6 songs are selected
 
 export default CreatePlaylistForm;

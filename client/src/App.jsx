@@ -74,20 +74,21 @@ class App extends React.Component {
       trackIds.push(track.trackId);
     });
     var playlistCreateQuery = {
-      name: playlistData.playlistName,
-      description: playlistData.playlistDescription,
+      name: playlistData.name,
+      description: playlistData.description,
       tracks: trackIds
     };
 
+    // learn regex later and fix this mess
     if (playlistData.playlistName !== ' ') {
       $.ajax({
         type: 'POST',
         url: '/create',
         data: playlistCreateQuery,
         success: (data) => {
-          console.log('create request');
+          // console.log('create request');
           this.setState({
-            playlistEmbed: data,
+            playlistEmbed: data.embedLink,
             playlistCreated: true
           });
         },

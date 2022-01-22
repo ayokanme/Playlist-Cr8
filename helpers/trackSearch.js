@@ -14,7 +14,7 @@ let trackSearch = (searchString) => {
   var queryString = createQueryString(searchString);
 
   let options = {
-    url: `https://api.spotify.com/v1/search?q=${queryString}&type=track`,
+    url: `https://api.spotify.com/v1/search?q=${queryString}&type=track&limit=10`,
     headers: {
       'User-Agent': 'request',
       'Authorization': `Bearer ${config.bearer_token}`

@@ -1,5 +1,7 @@
 const express = require('express');
 const trackSearch = require('../helpers/trackSearch').trackSearch;
+const createPlaylist = require('../helpers/createPlaylist').createPlaylist;
+const addTracksToPlaylist = require('../helpers/addTracksToPlaylist').addTracksToPlaylist;
 const insert = require('../database/insert');
 const retrieve = require('../database/retrieve');
 let app = express();
@@ -8,15 +10,6 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // how to handle cors requests
-
-
-// app.route('/tracks')
-//   .get((req, res, next) => {
-//     res.send(`${req.method} request called on ${req.path}`).end();
-//   })
-//   .post((req, res, next) => {
-//     res.send(`${req.method} request called on ${req.path}`).end();
-//   });
 
 
 app.post('/search', (req, res) => {
@@ -55,13 +48,45 @@ app.get('/search', (req, res) => {
     });
 });
 
-// app.route('/create')
-//   .get((req, res, next) => {
-//     res.send(`${req.method} request called on ${req.path}`).end();
-//   })
-//   .post((req, res, next) => {
-//     res.send(`${req.method} request called on ${req.path}`).end();
-// });
+app.post('/create', (req, res) => {
+  var playlistCreateQueryObj = {
+    name: req.body.name,
+    description: req.body.description
+  };
+  var trackIds = req.body.tracks;
+  var playlistId = '';
+  createPlaylist(playlistCreateQueryObj)
+    .then((data) => {
+      if (data.error) {
+        console.log(`the search returned this error at createPlaylist: ${JSON.stringify(data)}`);
+        res.status(data.error.status).json(data.error).end();
+      } else {
+        // console.log(`the search returned: ${JSON.stringify(data)}`);
+        playlistId = data;
+        return playlistId;
+      }
+    })
+    .then((spotifyId) => {
+      return addTracksToPlaylist(spotifyId, trackIds);
+    })
+    .then((data) => {
+      if (data.error) {
+        console.log(`the search returned this error at addTracksToPlaylist: ${JSON.stringify(data)}`);
+        res.status(data.error.status).json(data.error).end();
+      } else {
+        // console.log(`the search returned: ${JSON.stringify(data)}`);
+        if (playlistId) {
+          res.status(201)
+            .json({embedLink: `https://open.spotify.com/embed/playlist/${playlistId}`})
+            .end();
+        }
+      }
+    })
+    .catch(() => {
+      res.status(404).send('error. troubleshoot.').end();
+    });
+});
+
 
 let port = 3000;
 
