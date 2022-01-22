@@ -37,7 +37,7 @@ class SearchResults extends React.Component {
   render() {
     var searchedTracks = this.props.searchResults;
     var results = searchedTracks.map(this.createSearchResultItem);
-
+    // console.log('Search Results rendered: ', searchedTracks);
     return (
       <ul className="searchResults">
         {results}

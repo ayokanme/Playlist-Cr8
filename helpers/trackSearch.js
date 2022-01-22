@@ -25,7 +25,10 @@ let trackSearch = (searchString) => {
     method: 'get',
     url: options.url,
     responseType: 'json',
-    headers: options.headers
+    headers: options.headers,
+    validateStatus: (status) => {
+      return status === 200;
+    }
   })
     .then((response) => {
       var queryResponse = [];
@@ -61,12 +64,12 @@ let trackSearch = (searchString) => {
         queryResponse.push(trackData);
       });
 
-      console.log(`Your search returned this data: ${JSON.stringify(queryResponse)}`);
+      // console.log(`Your search returned this data: ${JSON.stringify(queryResponse)}`);
       return queryResponse;
     })
     .catch((error) => {
-      console.log(`Your search returned this error: ${error}`);
-      return error;
+      // console.log(`Your search returned an error. ${error}`);
+      return error.response.data;
     });
 };
 

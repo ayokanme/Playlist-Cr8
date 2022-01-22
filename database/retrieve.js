@@ -1,15 +1,22 @@
 const Playlist = require('./index.js').Playlist;
+const SearchResults =  require('./index.js').SearchResults;
+
 
 let getPlaylistTracks = (playlistId) => {
-  // use playlist id as a filter to retrieve track ids
+  return Playlist.find({ playlistId: playlistId }, 'tracks');
 };
 
-let getPlaylistTrackAnalyses = (playlistId) => {
-  // use playlist id as a filter to retrieve track ids and the specified parameter(s)
+let getSearchResults = () => {
+  return SearchResults.find().limit(10);
 };
+
+let deleteSearchResults = () => {
+  return SearchResults.deleteMany({});
+};
+
 
 module.exports = {
   getPlaylistTracks,
-  getPlaylistTrackAnalyses
+  getSearchResults,
+  deleteSearchResults
 };
-

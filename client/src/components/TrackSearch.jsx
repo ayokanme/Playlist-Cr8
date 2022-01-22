@@ -16,8 +16,15 @@ class TrackSearch extends React.Component {
     });
   }
 
-  search() {
+  search(e) {
+    // prevent app from rerendering!
+    e.preventDefault();
+    // handle search
     this.props.onSearch(this.state.query);
+    // reset the form after search button is hit
+    this.setState({
+      query: ''
+    });
   }
 
   render() {

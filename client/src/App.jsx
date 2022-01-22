@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import PlaylistDetails from './components/PlaylistDetails.jsx';
 import TrackSearch from './components/TrackSearch.jsx';
 import CurrentTracklist from './components/CurrentTracklist.jsx';
 import SearchResults from './components/SearchResults.jsx';
@@ -10,7 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: sampleData,
+      searchResults: [],
       playlist: []
     }
     this.search = this.search.bind(this);
@@ -18,20 +19,36 @@ class App extends React.Component {
     this.selectTrack = this.selectTrack.bind(this);
   }
 
-  search(query) {
-    var searchQuery = { query };
+  componentDidMount() {
     $.ajax({
-      type: 'POST',
+      type: 'GET',
       url: '/search',
-      data: searchQuery,
       success: (data) => {
-        var test = JSON.parse(data);
+        // console.log('get request');
         this.setState({
-          searchResults: test
+          searchResults: data
         });
       },
       dataType: 'json'
     });
+  }
+
+  search(query) {
+    var searchQuery = { query };
+    if (searchQuery.query) {
+      $.ajax({
+        type: 'POST',
+        url: '/search',
+        data: searchQuery,
+        success: (data) => {
+          // console.log('done');
+          this.setState({
+            searchResults: data
+          });
+        },
+        dataType: 'json'
+      });
+    }
   }
 
   deleteTrack(spotifyTrackId) {
@@ -58,6 +75,7 @@ class App extends React.Component {
   }
 
   render() {
+    // console.log('App rendered with search state: ', this.state.searchResults);
     return (
       <div id="container">
         <div className="appHeader">
