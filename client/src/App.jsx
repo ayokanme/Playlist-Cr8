@@ -1,22 +1,32 @@
 import React from 'react';
+import ReactModal from 'react-modal';
 import $ from 'jquery';
-import PlaylistDetails from './components/PlaylistDetails.jsx';
+
+import CreatePlaylistForm from './components/CreatePlaylistForm.jsx';
 import TrackSearch from './components/TrackSearch.jsx';
 import CurrentTracklist from './components/CurrentTracklist.jsx';
 import SearchResults from './components/SearchResults.jsx';
 const sampleData = require('../../sampledata.js').data;
 
 
+ReactModal.setAppElement('#app');
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       searchResults: [],
-      playlist: []
+      playlist: [],
+      disablePlaylistCreate: true,
+      showModal: false,
+      playlistEmbed: '',
+      playlistCreated: false
     }
     this.search = this.search.bind(this);
     this.deleteTrack = this.deleteTrack.bind(this);
     this.selectTrack = this.selectTrack.bind(this);
+    this.handleModal = this.handleModal.bind(this);
+    this.createPlaylist = this.createPlaylist.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +40,12 @@ class App extends React.Component {
         });
       },
       dataType: 'json'
+    });
+  }
+
+  handleModal() {
+    this.setState({
+      showModal: !this.state.showModal
     });
   }
 
@@ -51,10 +67,45 @@ class App extends React.Component {
     }
   }
 
+  createPlaylist(playlistData) {
+    var playlistArray = this.state.playlist;
+    var trackIds = [];
+    playlistArray.forEach(track => {
+      trackIds.push(track.trackId);
+    });
+    var playlistCreateQuery = {
+      name: playlistData.playlistName,
+      description: playlistData.playlistDescription,
+      tracks: trackIds
+    };
+
+    if (playlistData.playlistName !== ' ') {
+      $.ajax({
+        type: 'POST',
+        url: '/create',
+        data: playlistCreateQuery,
+        success: (data) => {
+          console.log('create request');
+          this.setState({
+            playlistEmbed: data,
+            playlistCreated: true
+          });
+        },
+        dataType: 'json'
+      });
+    }
+  }
+
   deleteTrack(spotifyTrackId) {
     var updatedPlaylist = this.state.playlist.filter(track => {
       return track.trackId !== spotifyTrackId;
     });
+
+    if (updatedPlaylist.length < 5) {
+      this.setState({
+        disablePlaylistCreate: true
+      });
+    }
 
     this.setState({
       playlist: updatedPlaylist
@@ -68,6 +119,12 @@ class App extends React.Component {
 
     var updatedPlaylist = this.state.playlist;
     updatedPlaylist.push(selectedTrack);
+
+    if (updatedPlaylist.length >= 5) {
+      this.setState({
+        disablePlaylistCreate: false
+      });
+    }
 
     this.setState({
       playlist: updatedPlaylist
@@ -83,25 +140,44 @@ class App extends React.Component {
           <TrackSearch onSearch={this.search}/>
         </div>
         <div className="appLists">
-          <div className="playlist" style={{display: 'inline-block'}}>
+          <div className="playlist"
+          style={{ display: 'inline-block', verticalAlign: 'top' }}>
             <h3> Current Tracklist </h3>
             <CurrentTracklist
               playlist={this.state.playlist}
               delete={this.deleteTrack}
             />
           </div>
-          <div className="searchResults" style={{display: 'inline-block'}}>
-            <h3> Search Results </h3>
-            <SearchResults
-              searchResults={this.state.searchResults}
-              select={this.selectTrack}
-            />
+          <div className="apiResults"
+          style={{ display: 'inline-block', verticalAlign: 'top' }}>
+            {
+              this.state.playlistCreated
+              ?
+              <iframe src={this.state.playlistEmbed} width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              :
+              <div className="searchResults"
+                style={{ display: 'inline-block', verticalAlign: 'top' }}
+              >
+                <h3> Search Results </h3>
+                <SearchResults
+                  searchResults={this.state.searchResults}
+                  select={this.selectTrack}
+                />
+              </div>
+            }
           </div>
         </div>
-        <div className="createPlaylistForm">
-          <h3>form for creating a playlist from the tracks selected will be rendered here.</h3>
-          <h5>inputs: name and description</h5>
-          <h5>button: cr8</h5>
+        <div className="createPlaylistModal">
+          <button
+            onClick={this.handleModal}
+            disabled={this.state.disablePlaylistCreate}
+          >CR8 PLAYLIST</button>
+          <ReactModal isOpen={this.state.showModal}>
+            <CreatePlaylistForm
+              playlistCreate={this.createPlaylist}
+              modalHandler={this.handleModal}
+            />
+          </ReactModal>
         </div>
       </div>
     );

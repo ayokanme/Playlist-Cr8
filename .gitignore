@@ -3,4 +3,3 @@
 client/dist/bundle.js
 node_modules/
 config.js
-client/src/components/PlaylistDetails.jsx
