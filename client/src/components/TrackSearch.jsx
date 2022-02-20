@@ -30,7 +30,6 @@ class TrackSearch extends React.Component {
   render() {
     return (
       <div className="searchForm">
-        <h2>Search for a track</h2>
       <form onSubmit={this.search}>
         <input
           value={this.state.query}

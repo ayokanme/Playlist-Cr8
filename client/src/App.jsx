@@ -136,30 +136,40 @@ class App extends React.Component {
     // console.log('App rendered with search state: ', this.state.searchResults);
     return (
       <div id="container">
-        <div className="appHeader">
-          <h1> Welcome to Playlist Cr8! </h1>
+        <div id="app-header">
+          <h1>PLAYLIST CR8</h1>
           <TrackSearch onSearch={this.search}/>
         </div>
-        <div className="appLists">
-          <div className="playlist"
-          style={{ display: 'inline-block', verticalAlign: 'top' }}>
-            <h3> Current Tracklist </h3>
+        <div id="app-lists">
+          <div id="tracklist-container"
+            style={{ display: 'inline-block', verticalAlign: 'top' }}
+          >
+            <h3> tracklist </h3>
             <CurrentTracklist
               playlist={this.state.playlist}
               delete={this.deleteTrack}
             />
           </div>
-          <div className="apiResults"
-          style={{ display: 'inline-block', verticalAlign: 'top' }}>
+          <div id="results-container"
+            style={{ display: 'inline-block', verticalAlign: 'top' }}
+          >
             {
               this.state.playlistCreated
               ?
-              <iframe src={this.state.playlistEmbed} width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              <iframe
+                src={this.state.playlistEmbed}
+                width="100%"
+                height="380"
+                frameBorder="0"
+                allowtransparency="true"
+                allow="encrypted-media"
+              >
+              </iframe>
               :
-              <div className="searchResults"
+              <div className="search"
                 style={{ display: 'inline-block', verticalAlign: 'top' }}
               >
-                <h3> Search Results </h3>
+                <h3> search results </h3>
                 <SearchResults
                   searchResults={this.state.searchResults}
                   select={this.selectTrack}
@@ -168,11 +178,13 @@ class App extends React.Component {
             }
           </div>
         </div>
-        <div className="createPlaylistModal">
+        <div id="createPlaylist-modal">
           <button
             onClick={this.handleModal}
             disabled={this.state.disablePlaylistCreate}
-          >CR8 PLAYLIST</button>
+          >
+            CR8 PLAYLIST
+          </button>
           <ReactModal isOpen={this.state.showModal}>
             <CreatePlaylistForm
               playlistCreate={this.createPlaylist}

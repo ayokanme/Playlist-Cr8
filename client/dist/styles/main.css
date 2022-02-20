@@ -1,0 +1,59 @@
+body {
+  background-color: #252525;
+  color: rgb(230, 225, 225);
+  font-family: 'Comfortaa';
+}
+
+h1 {
+  font-family: Comfortaa;
+  font-size:40px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+}
+
+h3 {
+  font-family: Comfortaa;
+  font-size: 32px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 15.4px;
+}
+
+p {
+  font-family: Comfortaa;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+blockquote {
+    font-family: Comfortaa;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+pre {
+  font-family: Comfortaa;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5714px;
+}
+
+a:link {
+  color: rgb(230, 225, 225);
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
