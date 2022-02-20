@@ -137,7 +137,7 @@ class App extends React.Component {
     return (
       <div id="container">
         <div id="app-header">
-          <h1>PLAYLIST CR8</h1>
+          <h1>playlist cr8</h1>
           <TrackSearch onSearch={this.search}/>
         </div>
         <div id="app-lists">

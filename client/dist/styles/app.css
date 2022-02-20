@@ -1,0 +1,63 @@
+#app {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+#container {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+#app-header {
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  text-align: center;
+  min-height: 15vh;
+  vertical-align: middle;
+}
+
+#search-form {
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  vertical-align: middle;
+
+}
+
+#search-form #search-form-container {
+  border-radius: 50px;
+  background: #181818;
+  min-height: 3vh;
+  max-width: 60vw;
+  vertical-align: middle;
+  margin: auto;
+}
+
+#search-form form {
+  width: 58.9vw;
+  padding-top: 0.5vh;
+  padding-left: 1vw;
+  padding-right: 0.1vw;
+  vertical-align: bottom;
+}
+
+#search-form input {
+  width: 49vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  vertical-align: middle;
+}
+
+#search-form button {
+  background: #181818;
+  color: rgb(230, 225, 225);
+  border: none;
+  box-shadow: none;
+  padding-left: 1vw;
+  padding-right: 0.1vw;
+  width: 5vw;
+  vertical-align: middle;
+}
+

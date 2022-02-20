@@ -20,9 +20,12 @@ class CurrentTracklist extends React.Component {
         <div style={{display: 'inline-block'}}>
           <ul>
             <li className="trackName">
+              {`Track: `}
               <a href={track.trackUrl}
-                target="_blank" rel="noopener noreferrer">
-                {`Track: ${track.track}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {track.track}
               </a>
             </li>
             <li className="artistName">{`Artist(s): ${track.artists}`}</li>

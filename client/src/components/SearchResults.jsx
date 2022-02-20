@@ -19,10 +19,13 @@ class SearchResults extends React.Component {
         </div>
         <div style={{display: 'inline-block'}}>
           <ul>
-            <li className="trackName">
+          <li className="trackName">
+            {`Track: `}
               <a href={track.trackUrl}
-                target="_blank" rel="noopener noreferrer">
-                {`Track: ${track.track}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {track.track}
               </a>
             </li>
             <li className="artistName">{`Artist(s): ${track.artists}`}</li>

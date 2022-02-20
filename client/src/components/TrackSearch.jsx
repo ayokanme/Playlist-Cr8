@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 class TrackSearch extends React.Component {
   constructor(props) {
@@ -29,16 +31,20 @@ class TrackSearch extends React.Component {
 
   render() {
     return (
-      <div className="searchForm">
-      <form onSubmit={this.search}>
-        <input
-          value={this.state.query}
-          onChange={this.handleChange}
-          placeholder="type in a song, artist, or album">
-        </input>
-        <button type="submit">search</button>
-      </form>
-    </div>
+      <div id="search-form">
+        <div id="search-form-container">
+          <form onSubmit={this.search}>
+            <input
+              value={this.state.query}
+              onChange={this.handleChange}
+              placeholder="search for a song, artist, or album">
+            </input>
+            <button type="submit">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
+          </form>
+        </div>
+      </div>
     );
   }
 }
