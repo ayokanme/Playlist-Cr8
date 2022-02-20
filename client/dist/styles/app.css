@@ -36,16 +36,16 @@
 }
 
 #search-form form {
-  width: 58.9vw;
+  width: 60.17vw;
   padding-top: 0.5vh;
-  padding-left: 1vw;
-  padding-right: 0.1vw;
+  padding-left: 0.01vw;
+  padding-right: 0.01vw;
   vertical-align: bottom;
 }
 
 #search-form input {
-  width: 49vw;
-  padding-left: 1vw;
+  width: 49.99vw;
+  padding-left: 0.01vw;
   padding-right: 1vw;
   vertical-align: middle;
 }
@@ -56,8 +56,11 @@
   border: none;
   box-shadow: none;
   padding-left: 1vw;
-  padding-right: 0.1vw;
+  padding-right: 0.01vw;
   width: 5vw;
   vertical-align: middle;
 }
 
+#search-form button :hover {
+  cursor: pointer;
+}

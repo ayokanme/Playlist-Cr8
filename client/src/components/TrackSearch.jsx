@@ -40,7 +40,7 @@ class TrackSearch extends React.Component {
               placeholder="search for a song, artist, or album">
             </input>
             <button type="submit">
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <FontAwesomeIcon type="submit" icon={faMagnifyingGlass} />
             </button>
           </form>
         </div>
