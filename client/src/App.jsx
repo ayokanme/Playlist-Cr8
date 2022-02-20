@@ -4,8 +4,7 @@ import $ from 'jquery';
 
 import CreatePlaylistForm from './components/CreatePlaylistForm.jsx';
 import TrackSearch from './components/TrackSearch.jsx';
-import CurrentTracklist from './components/CurrentTracklist.jsx';
-import SearchResults from './components/SearchResults.jsx';
+import { CurrentTracklist, SearchResults } from './components/TrackLists.jsx';
 const sampleData = require('../../sampledata.js').data;
 
 
