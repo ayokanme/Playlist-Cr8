@@ -184,7 +184,10 @@ class App extends React.Component {
           >
             CR8 PLAYLIST
           </button>
-          <ReactModal isOpen={this.state.showModal}>
+          <ReactModal
+            isOpen={this.state.showModal}
+            style={{ content: { background: '#252525' }}}
+          >
             <CreatePlaylistForm
               playlistCreate={this.createPlaylist}
               modalHandler={this.handleModal}
