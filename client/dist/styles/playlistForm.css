@@ -1,0 +1,15 @@
+#createPlaylist-modal {
+  margin: auto;
+  padding-left: 43%;
+  padding-right: 43%;
+}
+
+#createPlaylist-modal button {
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.ReactModal__Content {
+  background-color: #252525;
+  color: rgb(230, 225, 225);
+}

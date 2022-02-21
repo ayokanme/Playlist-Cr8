@@ -165,7 +165,7 @@ class App extends React.Component {
               >
               </iframe>
               :
-              <div className="search"
+              <div className="search-container"
                 style={{ display: 'inline-block', verticalAlign: 'top' }}
               >
                 <h3> search results </h3>

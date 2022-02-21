@@ -1,0 +1,16 @@
+.currentTracklist :hover {
+  cursor: grab;
+}
+
+.searchResults :hover {
+  cursor: grab;
+}
+
+.trackCard {
+  border-radius: 15px;
+  background: #f8f8f81f;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  margin-left: 0.1px;
+  margin-right: 0.1px;
+}

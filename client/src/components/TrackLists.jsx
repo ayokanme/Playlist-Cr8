@@ -16,7 +16,7 @@ class CurrentTracklist extends React.Component {
     let CurrentTracklist = this.props.playlist;
 
     return (
-      <div className="CurrentTracklist">
+      <div className="currentTracklist">
         {
           CurrentTracklist.map(track => {
             return (<TrackCard track={track} action={this.deleteTrack} />)

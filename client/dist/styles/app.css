@@ -7,15 +7,15 @@
 #container {
   padding-top: 2vh;
   padding-bottom: 2vh;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
 }
 
 #app-header {
   padding-top: 0.5vh;
   padding-bottom: 0.5vh;
   text-align: center;
-  min-height: 15vh;
+  min-height: 10vh;
   vertical-align: middle;
 }
 
@@ -23,7 +23,6 @@
   padding-top: 1vh;
   padding-bottom: 1vh;
   vertical-align: middle;
-
 }
 
 #search-form #search-form-container {

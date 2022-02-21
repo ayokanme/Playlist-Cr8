@@ -7,8 +7,10 @@ class TrackCard extends React.Component {
 
   render () {
     let track = this.props.track;
+
+    //refactor these to use icons in place of the bullets
     return (
-      <div onClick={() => this.props.action(track.trackId)}>
+      <div className="trackCard" onClick={() => this.props.action(track.trackId)}>
         <div style={{display: 'inline-block'}}>
           <img src={track.imageUrl} width="64" height="64"/>
         </div>
