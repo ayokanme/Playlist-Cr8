@@ -186,7 +186,7 @@ class App extends React.Component {
           </button>
           <ReactModal
             isOpen={this.state.showModal}
-            style={{ content: { background: '#252525' }}}
+            style={{ content: { background: '#252525' } }}
           >
             <CreatePlaylistForm
               playlistCreate={this.createPlaylist}

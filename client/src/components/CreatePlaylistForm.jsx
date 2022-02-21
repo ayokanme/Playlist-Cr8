@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 
 class CreatePlaylistForm extends React.Component {
   constructor(props) {
@@ -36,12 +38,14 @@ class CreatePlaylistForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.props.modalHandler}>X</button>
-        <h2>Playlist Details</h2>
-        <div className="form">
+      <div className="playlistForm-container">
+        <button id="escapeModal" onClick={this.props.modalHandler}>
+          <FontAwesomeIcon icon={faCircleXmark} />
+        </button>
+        <h2>playlist details</h2>
+        <div className="playlistForm-fields">
           <form onSubmit={this.create}>
-            <label htmlFor="playlistName" style={{ display: 'block' }}>Name: </label>
+            <label htmlFor="playlistName" style={{ display: 'block' }}>name: </label>
             <input
               name="playlistName"
               value={this.props.playlistName}
@@ -49,16 +53,20 @@ class CreatePlaylistForm extends React.Component {
               type="text"
               required
               style={{ display: 'block' }}
-              placeholder="what should we name it?">
+              placeholder="what are you going to name it?">
             </input>
-            <label htmlFor="playlistDescription" style={{ display: 'block' }}>Description: </label>
+            <br></br>
+            <label htmlFor="playlistDescription" style={{ display: 'block' }}>
+              description:
+            </label>
             <textarea
               name="playlistDescription"
               value={this.props.playlistDescription}
               onChange={this.handleChange}
               style={{ display: 'block' }}
-              placeholder="say a few words about your masterpiece">
+              placeholder="say a few words about your masterpiece...">
             </textarea>
+            <br></br>
             <button>CREATE PLAYLIST</button>
           </form>
         </div>
