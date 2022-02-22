@@ -8,15 +8,19 @@ Create playlists using the Spotify Web API
 
   cd playlist-cr8
   ```
+
 - Request a token from the [Spotify Developer Console](https://developer.spotify.com/console/) with the following permissions:
   - `playlist-modify-public`
   - `playlist-modify-private`
+
 - Rename the `config.example.js` file to `config.js`
   - paste the token into the `bearer_token` field
   - paste your Spotify User ID into the `user_id` field
+
 - Create two (2) terminal sessions:
   - In session #1, run: `npm install` then `npm run build`
   - In session #2, run: `npm start`
+
 - Open your browser and navigate to `http://localhost:3000/`
 
 ## Usage
