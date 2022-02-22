@@ -5,9 +5,12 @@ Create playlists using the Spotify Web API
 - Clone this repository and navigate to the project directory
   ```
   git clone https://github.com/ayokanme/Playlist-Cr8.git
+
   cd playlist-cr8
   ```
-- Request a token from the [Spotify Developer Console](https://developer.spotify.com/console/) with the following permissions: `playlist-modify-public` and `playlist-modify-private`
+- Request a token from the [Spotify Developer Console](https://developer.spotify.com/console/) with the following permissions:
+  - `playlist-modify-public`
+  - `playlist-modify-private`
 - Create two (2) terminal sessions:
   - In session #1, run: `npm install` then `npm run build`
   - In session #2, run: `npm start`
@@ -25,4 +28,4 @@ Create playlists using the Spotify Web API
 Future development will focus on:
 - Streamlining authentication by using the [Spotify Passport](https://www.passportjs.org/packages/passport-spotify/) strategy
 - Publishing to a website (the domain is secured!)
-- Implementing a track sorting algorithm
+- Implementing a track sorting algorithm (using track features)
