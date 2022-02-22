@@ -1,5 +1,5 @@
 # Playlist Cr8 #
-Playlist creator using the Spotify Web API
+Create playlists using the Spotify Web API
 
 ## Installation
 - Clone this repository and navigate to the project directory
