@@ -2,7 +2,7 @@
 Create playlists using the Spotify Web API
 
 ## Installation
-- Clone this repository and navigate to the project directory
+- Open a terminal window and clone this repository and navigate to the project directory
   ```
   git clone https://github.com/ayokanme/Playlist-Cr8.git
 
