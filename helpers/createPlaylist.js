@@ -1,7 +1,7 @@
-const axios = require('axios');
-const config = require('../config.js');
+import axios from "axios";
+import config from "../config.js";
 
-let createPlaylist = (createPlaylistObj) => {
+export default function createPlaylist(createPlaylistObj) {
 
   var queryObject = {
     name: createPlaylistObj.name,
@@ -12,16 +12,16 @@ let createPlaylist = (createPlaylistObj) => {
   let options = {
     url: `https://api.spotify.com/v1/users/${config.user_id}/playlists`,
     headers: {
-      'User-Agent': 'request',
-      'Authorization': `Bearer ${config.bearer_token}`
+      "User-Agent": "request",
+      "Authorization": `Bearer ${config.bearer_token}`
     }
   };
 
   return axios({
-    method: 'post',
+    method: "post",
     url: options.url,
     data: queryObject,
-    responseType: 'json',
+    responseType: "json",
     headers: options.headers,
     validateStatus: (status) => {
       return status === 201;
@@ -36,6 +36,4 @@ let createPlaylist = (createPlaylistObj) => {
       console.log(`Your search returned an error. ${error}`);
       return error.response.data;
     });
-};
-
-module.exports.createPlaylist = createPlaylist;
+}

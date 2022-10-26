@@ -1,8 +1,8 @@
-const Playlist = require('./index.js').Playlist;
-const SearchResults =  require('./index.js').SearchResults;
+import { Playlist, SearchResults } from "./index.js";
+import { response as res } from "express";
 
 
-let createPlaylist = (playlist) => {
+export function createPlaylist(playlist) {
   var time = Date();
 
   var newPlaylist = {
@@ -12,17 +12,17 @@ let createPlaylist = (playlist) => {
   };
 
   return Playlist.insertOne(newPlaylist);
-};
+}
 
-let updatePlaylistId = (playlistDetails, spotifyId) => {
+export function updatePlaylistId(playlistDetails, spotifyId) {
   var updateObj = {
     playlistId: spotifyId,
     playlistUrl: `https://open.spotify.com/embed/playlist/${spotifyId}`
   };
   return Playlist.updateOne({ _id: playlistDetails.playlistId, name: playlistDetails.name }, updateObj);
-};
+}
 
-let addTrack = (playlistId, trackObj) => {
+export function addTrack(playlistId, trackObj) {
   var trackToAdd = {
     trackId: trackObj.trackId,
     track: trackObj.track,
@@ -40,19 +40,19 @@ let addTrack = (playlistId, trackObj) => {
     (err, result) => {
       if (err) {
         res.status(500)
-        .json({ error: `Unable to insert new track. Error: ${err}`});
+          .json({ error: `Unable to insert new track. Error: ${err}`});
       } else {
         res.status(200)
-        .json(result);
+          .json(result);
       }
     }
   );
 
-};
+}
 
-let addSearchResults = (results) => {
+export function addSearchResults(results) {
   return SearchResults.insertMany(results);
-};
+}
 
 // let addTrackAnalysis = (playlistId, trackAnalysisObj) => {
 //   // needs to iterate through array, use updateMany???
@@ -80,10 +80,3 @@ let addSearchResults = (results) => {
 //     }
 //   );
 // };
-
-module.exports = {
-  createPlaylist,
-  updatePlaylistId,
-  addTrack,
-  addSearchResults
-};

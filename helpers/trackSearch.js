@@ -1,12 +1,12 @@
-const axios = require('axios');
-const config = require('../config.js');
+import axios from "axios";
+import config from "../config.js";
 
-let trackSearch = (searchString) => {
+export default function trackSearch(searchString) {
 
   var createQueryString = (string) => {
-    var trackQuery = '';
+    var trackQuery = "";
     if (string) {
-      trackQuery = string.replaceAll(' ', '%20');
+      trackQuery = string.replaceAll(" ", "%20");
     }
     return trackQuery;
   };
@@ -16,15 +16,15 @@ let trackSearch = (searchString) => {
   let options = {
     url: `https://api.spotify.com/v1/search?q=${queryString}&type=track&limit=10`,
     headers: {
-      'User-Agent': 'request',
-      'Authorization': `Bearer ${config.bearer_token}`
+      "User-Agent": "request",
+      "Authorization": `Bearer ${config.bearer_token}`
     }
   };
 
   return axios({
-    method: 'get',
+    method: "get",
     url: options.url,
-    responseType: 'json',
+    responseType: "json",
     headers: options.headers,
     validateStatus: (status) => {
       return status === 200;
@@ -39,7 +39,7 @@ let trackSearch = (searchString) => {
           track.artists.forEach(artist => {
             artistsStorage.push(artist.name);
           });
-          var artistsString = artistsStorage.join(', ');
+          var artistsString = artistsStorage.join(", ");
           return artistsString;
         };
 
@@ -71,6 +71,4 @@ let trackSearch = (searchString) => {
       // console.log(`Your search returned an error. ${error}`);
       return error.response.data;
     });
-};
-
-module.exports.trackSearch = trackSearch;
+}
