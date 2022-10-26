@@ -1,4 +1,6 @@
 import express from "express";
+
+import search from "./search";
 import create from "./create";
 
 const app = express();
@@ -10,16 +12,15 @@ app.use(express.urlencoded({ extended: true }));
 // how to handle cors requests
 
 
-app.post("/search", );
+app.post("/search", search.post);
 
-app.get("/search", );
+app.get("/search", search.get);
 
 app.post("/create", create);
 
 
-let port = 3000;
+const port = 3000;
 
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });
-
