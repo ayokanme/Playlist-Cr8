@@ -13,9 +13,9 @@ Create playlists using the Spotify Web API
   - `playlist-modify-public`
   - `playlist-modify-private`
 
-- Rename the `config.example.js` file to `config.js`
-  - paste the token into the `bearer_token` field
-  - paste your Spotify User ID into the `user_id` field
+- Rename the `example.env` file to `.env`
+  - paste the token into the `BEARER_TOKEN` field
+  - paste your Spotify User ID into the `USER_ID` field
 
 - Create two (2) terminal sessions:
   - In session #1, run: `npm install` then `npm run build`
