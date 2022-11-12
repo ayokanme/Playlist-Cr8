@@ -33,6 +33,8 @@ Create playlists using the Spotify Web API
 
 ## Future Plans
 Future development will focus on:
-- Streamlining authentication by using the [Spotify Passport](https://www.passportjs.org/packages/passport-spotify/) strategy
-- Publishing to a website (the domain is secured!)
-- Implementing a track sorting algorithm (using track features)
+- [ ] rewrite in TypeScript
+- [ ] rewrite using NextJS
+- [ ] Streamlining authentication by using the [Spotify Passport](https://www.passportjs.org/packages/passport-spotify/) strategy
+- [ ] Publishing to a website (the domain is secured!)
+- [ ] Implementing a track sorting algorithm (using track features)
